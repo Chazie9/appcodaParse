@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import Bolts
+import ParseUI
 
 
 
@@ -68,7 +69,7 @@ class DetailViewController: UIViewController {
             problemTitle.text = object["problemTitle"] as! String
             problemLocation.text = object["problemLocation"] as! String
             problemDiscription.text = object["problemDiscription"] as! String
-            managersNotes.text = object["ManagersNotes"] as! String
+            managersNotes.text = object["managersNotes"] as! String
         }
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 import Bolts
-
+import ParseUI
 
 
 class TableViewController: PFQueryTableViewController {
@@ -54,6 +54,7 @@ class TableViewController: PFQueryTableViewController {
         return cell
     }
     
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         // Get the new view controller using [segue destinationViewController].
@@ -63,10 +64,9 @@ class TableViewController: PFQueryTableViewController {
         if let indexPath = self.tableView.indexPathForSelectedRow() {
             let row = Int(indexPath.row)
             detailScene.currentObject = (objects?[row] as! PFObject)
-            
         }
     }
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+       // In a storyboard-based application, you will often want to do a little preparation before navigation
     
     
    override func viewDidAppear(animated: Bool) {

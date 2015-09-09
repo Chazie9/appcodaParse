@@ -16,13 +16,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     
     
-    @IBAction func add(sender: AnyObject) {
-        
-        dispatch_async(dispatch_get_main_queue()) {
-            self.performSegueWithIdentifier("TableViewToDetailView", sender: self)
-        }
-    }
-    
+       
     
     @IBAction func logOutAction(sender: AnyObject){
         

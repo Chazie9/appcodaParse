@@ -432,7 +432,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="z9S-DJ-ewg" kind="show" identifier="" id="bS6-fu-U6l"/>
+                                    <segue destination="z9S-DJ-ewg" kind="presentation" id="bJo-gA-yEo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -441,16 +441,26 @@
                             <outlet property="delegate" destination="wbM-oK-L4K" id="idd-4f-eo2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="wQ3-Lr-OuM"/>
+                    <navigationItem key="navigationItem" id="wQ3-Lr-OuM">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="d1X-gZ-siw">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QZd-60-Nar">
+                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Report Problem">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fcb-sQ-RvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2164" y="314"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--DetailViewController-->
         <scene sceneID="gEb-y7-hY3">
             <objects>
-                <viewController title="Detail View Controller" id="z9S-DJ-ewg" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController title="DetailViewController" id="z9S-DJ-ewg" customClass="DetailViewController" customModule="ParseDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hIY-2P-fja"/>
                         <viewControllerLayoutGuide type="bottom" id="8va-ce-3Wz"/>
