@@ -15,40 +15,49 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
-    }
+    @IBOutlet weak var userTypeField: UITextField!
     
+
     
     @IBAction func signUpAction(sender: AnyObject) {
         
         var username = self.usernameField.text
         var password = self.passwordField.text
+      //  var userType = self.userTypeField.text
         var email = self.emailField.text
         var finalEmail = email.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
         
         // Validate the text fields
         if count(username) < 5 {
             var alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
             alert.show()
             
-        } else if count(password) < 8 {
-            var alert = UIAlertView(title: "Invalid", message: "Password must be greater than 8 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
+            } else if count(password) < 8 {
+                var alert = UIAlertView(title: "Invalid", message: "Password must be greater than 8 characters", delegate: self, cancelButtonTitle: "OK")
+                alert.show()
             
-        } else if count(email) < 8 {
-            var alert = UIAlertView(title: "Invalid", message: "Please enter a valid email address", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
+            } else if count(email) < 8 {
+                var alert = UIAlertView(title: "Invalid", message: "Please enter a valid email address", delegate: self, cancelButtonTitle: "OK")
+                alert.show()
+
+            //} else if count(userType) < 7 {
+               //var alert = UIAlertView(title: "Invalid", message: "Please sign in as a Manager or //download a different app", delegate: self, cancelButtonTitle: "OK")
+             //   alert.show()
+        
+            } else {
+                // Run a spinner to show a task in progress
+                var spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
+                spinner.startAnimating()
             
-        } else {
-            // Run a spinner to show a task in progress
-            var spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
-            spinner.startAnimating()
+                var newUser = PFUser()
             
-            var newUser = PFUser()
+                newUser.username = username
+                newUser.password = password
+
+                newUser.email = finalEmail
             
-            newUser.username = username
-            newUser.password = password
-            newUser.email = finalEmail
+                newUser["type"] = "manager"
             
             // Sign up the user asynchronously
             newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in

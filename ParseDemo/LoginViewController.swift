@@ -40,6 +40,8 @@ class LoginViewController: UIViewController {
                 spinner.stopAnimating()
                 
                 if ((user) != nil) {
+                    
+                    
                     var alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
                     alert.show()
                     
